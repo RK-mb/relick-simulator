@@ -1,0 +1,178 @@
+/* 全体共通 */
+body {
+  display: flex;            /* Flexboxにする */
+  justify-content: center;  /* 横方向中央揃え */
+  align-items: center;      /* 縦方向中央揃え */
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 左右に並べる全体レイアウト */
+.container {
+  display: flex;
+  gap: 24px;
+  padding: 16px;
+  align-items: flex-start; /* 上揃え */
+}
+
+/* 左パネル（grid + controls） */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* グリッド */
+.grid {
+  position: relative;
+  width: 364px; /* 52px × 7 */
+  height: 364px;
+  display: grid;
+  grid-template-columns: repeat(7, 52px);
+  grid-template-rows: repeat(7, 52px);
+  gap: 0px;
+}
+
+/* マス目 */
+.cell {
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+/* ブロック */
+.block-group {
+  position: absolute;
+}
+.block {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+/* 操作ボタン */
+.controls {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.controls div {
+  display: flex;
+  gap: 8px;
+}
+
+/* 右パネル（色選択、パレット、保存リスト） */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 200px;
+}
+
+/* 色選択 */
+.colorSelector {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f9f9f9;
+  width: 140px;
+}
+
+/* パレット */
+.palette {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #fff;
+}
+
+.palette-item {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.palette-item .mini-block-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 4px;
+}
+.palette-item .mini-block {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #666;
+  border: 1px solid #333;
+}
+.block-label {
+  text-align: center;
+  font-size: 12px;
+}
+
+.mini-block-container {
+    border: 1px solid #333;
+}
+
+/* 保存リスト */
+.save-list-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #f9f9f9;
+  width: 200px;
+}
+
+#saveList {
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.save-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.save-entry button {
+  margin-left: 4px;
+}
+
+
+
+.block-group.selected {
+  outline: 3px solid orange;
+  outline-offset: 2px;
+  z-index: 10;
+}
+
+.block.highlighted {
+  outline: 3px solid orange;     /* 1マスごとに輪郭を付ける */
+  outline-offset: -2px;          /* 内側に寄せて隙間をなくす */
+  z-index: 10;
+}
+
+#blockList {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #f9f9f9;
+  font-size: 12px;
+}
+
+.block-list-entry {
+  margin-bottom: 4px;
+}

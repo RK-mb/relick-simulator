@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>レリック配置シミュレーター</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <!-- 左パネル：grid + controls -->
+            <div class="left-panel">
+                <div id="grid" class="grid"></div>
+                <div class="controls">
+                    <button onclick="move(0, -1)">⬆️</button>
+                    <div>
+                        <button onclick="move(-1, 0)">⬅️</button>
+                        <button onclick="rotate()">🔁</button>
+                        <button onclick="move(1, 0)">➡️</button>
+                    </div>
+                    <button onclick="move(0, 1)">⬇️</button>
+                    <button onclick="place()">✅ 配置</button>
+                    <button onclick="deleteBlock()">🗑️ 削除</button>
+                    <!-- <button onclick="deselectBlock()">❌ 選択解除</button> -->
+                    <button onclick="saveBlockStatePrompt()">保存</button>
+                </div>
+            </div>
+
+            <!-- 右パネル：色・パレット・保存 -->
+            <div class="right-panel">
+                <div class="colorSelector" id="colorSelector">
+                    <label>色を選択:</label><br>
+                    <label><input type="radio" name="color" value="#f44336" checked> 赤</label>
+                    <label><input type="radio" name="color" value="#2196f3"> 青</label>
+                    <label><input type="radio" name="color" value="#ffeb3b"> 黄</label>
+                    <label><input type="radio" name="color" value="#4caf50"> 緑</label>
+                    <label><input type="radio" name="color" value="#ffffff"> 白</label>
+                    <label><input type="radio" name="color" value="#000000"> 黒</label>
+                </div>
+
+                <div class="palette" id="blockPalette"></div>
+
+                <div class="save-list-container">
+                    <h3>保存されたレイアウト</h3>
+                    <div id="saveList"></div>
+                </div>
+                <h3>配置ブロック一覧</h3>
+                <div id="placedBlockList"></div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="module" src="script.js"></script>
+</body>
+
+
+</html>
